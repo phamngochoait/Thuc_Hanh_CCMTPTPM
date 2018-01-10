@@ -1,4 +1,4 @@
-using QLBanVeMayBay.Model;
+﻿using QLBanVeMayBay.Model;
 using QLBanVeMayBay.Object;
 using System;
 using System.Collections.Generic;
@@ -9,26 +9,25 @@ using System.Threading.Tasks;
 
 namespace QLBanVeMayBay.Control
 {
-	class MayBayCtr
+    class MayBayCtr
     {
         MayBayMod hhMod = new MayBayMod();
         public DataTable GetData()
         {
             return hhMod.GetData();
         }
-	   public DataTable GetData(string dieukien)
+        public DataTable GetData(string dieukien)
         {
             return hhMod.GetData(dieukien);
         }
-	   public bool AddData(MayBayObj hhObj)
+        public bool AddData(MayBayObj hhObj)
         {
             return hhMod.AddData(hhObj);
         }
-	   public bool UpdData(MayBayObj hhObj)
+        public bool UpdData(MayBayObj hhObj)
         {
             return hhMod.UpdData(hhObj);
         }
-	   
         public bool UpdSL(DataTable dt)
         {
             DataTable dthh = new DataTable();
@@ -50,7 +49,9 @@ namespace QLBanVeMayBay.Control
             }
             return true;
         }
-
+        public bool DelData(string ma)
+        {
+            return hhMod.DelData(ma);
+        }
     }
-
 }
