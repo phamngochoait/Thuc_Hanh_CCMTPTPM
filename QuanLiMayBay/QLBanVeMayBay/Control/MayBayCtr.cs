@@ -16,6 +16,10 @@ namespace QLBanVeMayBay.Control
         {
             return hhMod.GetData();
         }
+	   public DataTable GetData(string dieukien)
+        {
+            return hhMod.GetData(dieukien);
+        }
 
     }
 
