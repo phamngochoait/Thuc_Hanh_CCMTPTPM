@@ -9,5 +9,14 @@ using System.Threading.Tasks;
 
 namespace QLBanVeMayBay.Control
 {
-	
+	class MayBayCtr
+    {
+        MayBayMod hhMod = new MayBayMod();
+        public DataTable GetData()
+        {
+            return hhMod.GetData();
+        }
+
+    }
+
 }
