@@ -24,6 +24,10 @@ namespace QLBanVeMayBay.Control
         {
             return hhMod.AddData(hhObj);
         }
+	   public bool UpdData(MayBayObj hhObj)
+        {
+            return hhMod.UpdData(hhObj);
+        }
 
     }
 
