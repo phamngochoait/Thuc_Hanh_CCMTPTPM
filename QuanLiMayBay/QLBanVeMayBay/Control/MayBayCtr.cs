@@ -20,6 +20,10 @@ namespace QLBanVeMayBay.Control
         {
             return hhMod.GetData(dieukien);
         }
+	   public bool AddData(MayBayObj hhObj)
+        {
+            return hhMod.AddData(hhObj);
+        }
 
     }
 
