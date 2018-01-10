@@ -8,6 +8,13 @@ namespace QLBanVeMayBay.Object
 {
 	class MayBayObj
     {
+		string ma, ten, diemdi, diemden;
+
+        public string DiemDi
+        {
+            get { return diemdi; }
+            set { diemdi = value; }
+        }
 
     }
 
