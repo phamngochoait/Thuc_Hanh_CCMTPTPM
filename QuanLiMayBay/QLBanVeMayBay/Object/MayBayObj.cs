@@ -15,6 +15,14 @@ namespace QLBanVeMayBay.Object
             get { return diemdi; }
             set { diemdi = value; }
         }
+	   
+        public string DiemDen
+        {
+            get { return diemden; }
+            set { diemden = value; }
+        }
+        int dongia, soluong;
+
 
     }
 
