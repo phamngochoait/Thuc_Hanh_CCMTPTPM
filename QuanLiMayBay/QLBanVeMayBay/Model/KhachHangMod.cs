@@ -75,6 +75,44 @@ namespace QLBanVeMayBay.Model
             return false;
         }
 
-    
+        public bool UpdDiem(KhachHangObj khObj)
+        {
+            cmd.CommandText = "Update tb_KhachHang set Diem ='" + khObj.Diem + "' Where MaKH = '" + khObj.MaKhachHang + "'";
+            cmd.CommandType = CommandType.Text;
+            cmd.Connection = con.Connection;
+            try
+            {
+                con.OpenConn();
+                cmd.ExecuteNonQuery();
+                return true;
+            }
+            catch (Exception ex)
+            {
+                string mex = ex.Message;
+                cmd.Dispose();
+                con.CloseConn();
+            }
+            return false;
+        }
+
+        public bool DelData(string ma)
+        {
+            cmd.CommandText = "Delete tb_KhachHang Where MaKH = '" + ma + "'";
+            cmd.CommandType = CommandType.Text;
+            cmd.Connection = con.Connection;
+            try
+            {
+                con.OpenConn();
+                cmd.ExecuteNonQuery();
+                return true;
+            }
+            catch (Exception ex)
+            {
+                string mex = ex.Message;
+                cmd.Dispose();
+                con.CloseConn();
+            }
+            return false;
+        }
     }
 }
