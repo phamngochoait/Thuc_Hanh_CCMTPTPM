@@ -56,6 +56,26 @@ class MayBayMod
             return dt;
         }
 
+        public bool AddData(MayBayObj hhObj)
+        {
+            cmd.CommandText = "Insert into tb_MayBay values ('" + hhObj.MaMayBay+ "', N'" + hhObj.TenMayBay + "','" + hhObj.DonGia + "',"+hhObj.SoLuong+" )";
+            cmd.CommandType = CommandType.Text;
+            cmd.Connection = con.Connection;
+            try
+            {
+                con.OpenConn();
+                cmd.ExecuteNonQuery();
+                return true;
+            }
+            catch (Exception ex)
+            {
+                string mex = ex.Message;
+                cmd.Dispose();
+                con.CloseConn();
+            }
+            return false;
+        }
+
 
     }
 }
