@@ -9,5 +9,8 @@ using System.Threading.Tasks;
 
 namespace QLBanVeMayBay.Model
 {
+class MayBayMod
+    {
 
+    }
 }
