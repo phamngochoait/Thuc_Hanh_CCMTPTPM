@@ -6,22 +6,23 @@ using System.Threading.Tasks;
 
 namespace QLBanVeMayBay.Object
 {
-	class MayBayObj
+    class MayBayObj
     {
-		string ma, ten, diemdi, diemden;
+        string ma, ten, diemdi, diemden;
 
         public string DiemDi
         {
             get { return diemdi; }
             set { diemdi = value; }
         }
-	   
+
         public string DiemDen
         {
             get { return diemden; }
             set { diemden = value; }
         }
         int dongia, soluong;
+
         public int SoLuong
         {
             get { return soluong; }
@@ -45,7 +46,22 @@ namespace QLBanVeMayBay.Object
             get { return ma; }
             set { ma = value; }
         }
+     
 
+        public MayBayObj() { }
+
+
+        public MayBayObj(string ma, string ten, int dongia, int soluong,string diemdi,string diemden)
+        {
+            this.ma = ma;
+            this.ten = ten;
+            this.dongia = dongia;
+            this.soluong = soluong;
+            this.diemdi = diemdi;
+            this.diemden = diemden;
+
+        }
+    
     }
-
 }
+
