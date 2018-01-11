@@ -35,6 +35,27 @@ class MayBayMod
             }
             return dt;
         }
+        public DataTable GetData(string dieukien)
+        {
+            DataTable dt = new DataTable();
+            cmd.CommandText = "select * from tb_MayBay " + dieukien;
+            cmd.CommandType = CommandType.Text;
+            cmd.Connection = con.Connection;
+            try
+            {
+                con.OpenConn();
+                SqlDataAdapter sda = new SqlDataAdapter(cmd);
+                sda.Fill(dt);
+            }
+            catch (Exception ex)
+            {
+                string mex = ex.Message;
+                cmd.Dispose();
+                con.CloseConn();
+            }
+            return dt;
+        }
+
 
     }
 }
