@@ -213,7 +213,78 @@ namespace QLBanVeMayBay.View
             MessageBox.Show("Chức năng đang đc nâng cấp");
 
         }
+	
+        
+      
+        private void btnThem_Click(object sender, EventArgs e)
+        {
+            if (!string.IsNullOrEmpty(txtMa.Text))
+            {
+                if (kiemtraSL(cmbHH.SelectedValue.ToString(), int.Parse(txtSL.Text.Trim())))
+                {
+                    if (!checktrung(cmbHH.SelectedValue.ToString()))
+                    {
+                        DataRow dr = dtDSCT.NewRow();
+                        dr[0] = txtMa.Text.Trim();
+                        dr[1] = cmbHH.SelectedValue.ToString();
+                        dr[2] = txtDonGia.Text;
+                        dr[3] = txtSL.Text;
+                        dr[4] = (double.Parse(txtDonGia.Text) * int.Parse(txtSL.Text)).ToString();
+                        dtDSCT.Rows.Add(dr);
+                    }
+                    else
+                    {
+                        capnhatSL(cmbHH.SelectedValue.ToString(), int.Parse(txtSL.Text));
+                    }
+                    dtgvDSHH.DataSource = dtDSCT;
+                }
+                else
+                {
+                    MessageBox.Show("Số lượng không dủ", "Lỗi");
+                    txtSL.Focus();
+                }
+            }
+        }
 
+        private void cmbHH_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            DataTable dt = new DataTable();
+            dt = hhctr.GetData("Where MaMB = '" + cmbHH.SelectedValue.ToString() + "'");
+            if (dt.Rows.Count > 0)
+            {
+                double gia = double.Parse(dt.Rows[0][2].ToString());
+
+                txtDonGia.Text = (gia * 1.1).ToString();
+
+                lbThanhTien.Text = (double.Parse(txtDonGia.Text) * int.Parse(txtSL.Text)).ToString();
+            }
+        }
+
+        private void groupBox3_Enter(object sender, EventArgs e)
+        {
+
+        }
+
+        private void btnBot_Click(object sender, EventArgs e)
+        {
+            if (vitriclick < dtDSCT.Rows.Count)
+            {
+                dtDSCT.Rows.RemoveAt(vitriclick);
+                dtgvDSHH.DataSource = dtDSCT;
+            }
+        }
+
+        private void dtgvDSHH_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            vitriclick = e.RowIndex;
+
+        }
+
+        private void txtSL_TextChanged(object sender, EventArgs e)
+        {
+            lbThanhTien.Text = (double.Parse(txtDonGia.Text) * int.Parse(txtSL.Text)).ToString();
+
+        }
 
     }
 }
