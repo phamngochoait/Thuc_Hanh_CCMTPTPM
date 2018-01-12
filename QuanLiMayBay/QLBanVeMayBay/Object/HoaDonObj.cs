@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace QLBanVeMayBay.Object
 {
- class HoaDonObj
+    class HoaDonObj
     {
         string ma, ngaylap, nguoilap, khachhang;
 
@@ -43,7 +43,6 @@ namespace QLBanVeMayBay.Object
         
         
         }
-   
 
 
 

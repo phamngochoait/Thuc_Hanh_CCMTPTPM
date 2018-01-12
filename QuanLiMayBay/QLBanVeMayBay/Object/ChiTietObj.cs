@@ -6,8 +6,8 @@ using System.Threading.Tasks;
 
 namespace QLBanVeMayBay.Object
 {
-	class ChiTietObj
-    	{
+    class ChiTietObj
+    {
         string mahd, mahh;
 
         public string MaHangHoa
@@ -43,7 +43,6 @@ namespace QLBanVeMayBay.Object
             this.sl = sl;
             this.dongia = dongia;
         }
-   
 
 
     }
