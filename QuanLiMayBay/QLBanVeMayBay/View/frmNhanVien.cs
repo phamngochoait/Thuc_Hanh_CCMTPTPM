@@ -157,7 +157,7 @@ namespace QLBanVeMayBay.View
                     MessageBox.Show("Sửa không thành công!", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
             frmNhanVien_Load(sender, e);
-            //DisEnl(false);
+          
 
 
 
@@ -170,7 +170,7 @@ namespace QLBanVeMayBay.View
             frmNhanVien_Load(sender, e);
             else
                 return ; 
-            //DisEnl(false);
+           
         }
 
         private void txtSDT_TextChanged(object sender, EventArgs e)
