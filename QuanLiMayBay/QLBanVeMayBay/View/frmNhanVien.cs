@@ -80,7 +80,7 @@ namespace QLBanVeMayBay.View
             flagLuu = 0;
             clearData();
             DisEnl(true);
-            //loadCMB();
+            
 
         }
 
@@ -133,8 +133,7 @@ namespace QLBanVeMayBay.View
                 else
                     MessageBox.Show("Xóa không thành công!", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
-            //else
-            //    return;
+           
             frmNhanVien_Load(sender, e);
 
         }
