@@ -159,6 +159,60 @@ namespace QLBanVeMayBay.View
             txtNgayLap.Enabled = true;
 
         }
+	
+        private void btnDel_Click(object sender, EventArgs e)
+        {
+            DialogResult dr = MessageBox.Show("Bạn chắc chắn muốn xóa hóa đơn này?", "Xác nhận xóa", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+            if (dr == DialogResult.Yes)
+            {
+                if (hdCtr.DelData(txtMa.Text.Trim()))
+                    MessageBox.Show("Xóa thành công!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                else
+                    MessageBox.Show("Xóa không thành công!", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            FrmHoaDon_Load(sender, e);
+        }
+        private bool kiemtraSL(string mahh, int sl)
+        {
+            DataTable dt = new DataTable();
+            dt = hhctr.GetData("Where MaMB = '" + cmbHH.SelectedValue.ToString() + "' and SoLuong>= " + sl);
+            if (dt.Rows.Count > 0)
+                return true;
+            return false;
+        }
+
+        private void btnSave_Click(object sender, EventArgs e)
+        {
+            HoaDonObj hdObj = new HoaDonObj();
+            addData(hdObj);
+            if (hdCtr.AddData(hdObj))
+            {
+                //DataTable dt = new System.Data.DataTable();
+                if (ctCtr.AddData(dtDSCT) && hhctr.UpdSL(dtDSCT))
+                //if (ctCtr.AddData(dt))
+                    MessageBox.Show("Thêm hóa đơn thành công!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                else
+                    MessageBox.Show("Thêm chi tiết không thành công!", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            else
+                MessageBox.Show("Thêm hóa đơn không thành công!", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            FrmHoaDon_Load(sender, e);
+        }
+
+        private void btnCancel_Click(object sender, EventArgs e)
+        {
+            DialogResult dr = MessageBox.Show("Bạn chắc chắn muốn hủy thao tác đang làm?", "Xác nhận hủy", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+            if (dr == DialogResult.Yes)
+                FrmHoaDon_Load(sender, e);
+            else
+                return;
+        }
+
+        private void btnPrint_Click(object sender, EventArgs e)
+        {
+            MessageBox.Show("Chức năng đang đc nâng cấp");
+
+        }
 
 
     }
