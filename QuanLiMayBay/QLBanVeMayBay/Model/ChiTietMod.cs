@@ -9,8 +9,8 @@ using System.Data;
 
 namespace QLBanVeMayBay.Model
 {
-      class ChiTietMod
-       {
+    class ChiTietMod
+    {
         ConnectToSQL con = new ConnectToSQL();
         SqlCommand cmd = new SqlCommand();
         public DataTable GetData(string ma)
@@ -77,6 +77,5 @@ namespace QLBanVeMayBay.Model
             }
             return false;
         }
-    
     }
 }

@@ -17,7 +17,8 @@ namespace QLBanVeMayBay.View
         {
             InitializeComponent();
         }
-	 private void frmDangnhap_Load(object sender, EventArgs e)
+
+        private void frmDangnhap_Load(object sender, EventArgs e)
         {
 
         }
@@ -48,6 +49,5 @@ namespace QLBanVeMayBay.View
 
             this.Close();
         }
-       
     }
 }

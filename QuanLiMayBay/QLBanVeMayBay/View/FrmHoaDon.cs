@@ -19,7 +19,9 @@ namespace QLBanVeMayBay.View
         MayBayCtr hhctr = new MayBayCtr();
         DataTable dtDSCT = new System.Data.DataTable();
         int vitriclick = 0;
-	public FrmHoaDon()
+
+
+        public FrmHoaDon()
         {
             InitializeComponent();
         }
@@ -56,7 +58,8 @@ namespace QLBanVeMayBay.View
             cmbKhachHang.DataBindings.Clear();
             cmbKhachHang.DataBindings.Add("Text", dtgvDSHD.DataSource, "TenKH");
         }
-	  private void txtMa_TextChanged(object sender, EventArgs e)
+
+        private void txtMa_TextChanged(object sender, EventArgs e)
         {
             try
             {
@@ -159,7 +162,7 @@ namespace QLBanVeMayBay.View
             txtNgayLap.Enabled = true;
 
         }
-	
+
         private void btnDel_Click(object sender, EventArgs e)
         {
             DialogResult dr = MessageBox.Show("Bạn chắc chắn muốn xóa hóa đơn này?", "Xác nhận xóa", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
@@ -213,9 +216,7 @@ namespace QLBanVeMayBay.View
             MessageBox.Show("Chức năng đang đc nâng cấp");
 
         }
-	
-        
-      
+
         private void btnThem_Click(object sender, EventArgs e)
         {
             if (!string.IsNullOrEmpty(txtMa.Text))
@@ -285,6 +286,5 @@ namespace QLBanVeMayBay.View
             lbThanhTien.Text = (double.Parse(txtDonGia.Text) * int.Parse(txtSL.Text)).ToString();
 
         }
-
     }
 }

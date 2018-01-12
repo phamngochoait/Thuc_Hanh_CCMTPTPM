@@ -1,4 +1,4 @@
-using QLBanVeMayBay.Object;
+﻿using QLBanVeMayBay.Object;
 using System;
 using System.Collections.Generic;
 using System.Data;
@@ -138,4 +138,3 @@ namespace QLBanVeMayBay.Model
         }
     }
 }
-

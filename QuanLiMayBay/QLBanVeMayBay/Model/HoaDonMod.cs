@@ -9,8 +9,8 @@ using System.Data;
 
 namespace QLBanVeMayBay.Model
 {
-	class HoaDonMod
-        {
+    class HoaDonMod
+    {
         ConnectToSQL con = new ConnectToSQL();
         SqlCommand cmd = new SqlCommand();
   
@@ -75,6 +75,5 @@ namespace QLBanVeMayBay.Model
             }
             return false;
         }
-   
     }
 }

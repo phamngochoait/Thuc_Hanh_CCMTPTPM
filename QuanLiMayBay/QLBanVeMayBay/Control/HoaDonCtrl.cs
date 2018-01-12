@@ -9,8 +9,8 @@ using System.Threading.Tasks;
 
 namespace QLBanVeMayBay.Control
 {
-	class HoaDonCtrl
-    	{
+    class HoaDonCtrl
+    {
         HoaDonMod hdMod = new HoaDonMod();
         public DataTable GetData()
         {
@@ -24,6 +24,5 @@ namespace QLBanVeMayBay.Control
         {
             return hdMod.DelData(ma);
         }
-    
     }
 }
