@@ -56,6 +56,109 @@ namespace QLBanVeMayBay.View
             cmbKhachHang.DataBindings.Clear();
             cmbKhachHang.DataBindings.Add("Text", dtgvDSHD.DataSource, "TenKH");
         }
+	  private void txtMa_TextChanged(object sender, EventArgs e)
+        {
+            try
+            {
+                DataTable dt = new System.Data.DataTable();
+                dt = ctCtr.GetData(txtMa.Text.Trim());
+                dtgvDSHH.DataSource = dt;
+
+            }
+            catch
+            {
+                dtgvDSHH.DataSource = null;
+            }
+        }
+
+        private void Dis_Enl(bool e)
+        {
+            txtMa.Enabled = e;
+            txtNhanVien.Enabled = e;
+            cmbKhachHang.Enabled = e;
+            btnAdd.Enabled = !e;
+            btnDel.Enabled = !e;
+            btnPrint.Enabled = !e;
+            btnSave.Enabled = e;
+            btnCancel.Enabled = e;
+            btncham.Enabled = e;
+            btnThem.Enabled = e;
+            btnBot.Enabled = e;
+            cmbHH.Enabled = e;
+            txtSL.Enabled = e;
+        }
+
+        private void LoadcmbKhachHang()
+        {
+            KhachHangCtr khctr = new KhachHangCtr();
+            cmbKhachHang.DataSource = khctr.GetData();
+            cmbKhachHang.DisplayMember = "TenKH";
+            cmbKhachHang.ValueMember = "MaKH";
+            cmbKhachHang.SelectedIndex = 0;
+        }
+
+        private void LoadcmbHH()
+        {
+            MayBayCtr hhctr = new MayBayCtr();
+            cmbHH.DataSource = hhctr.GetData();
+            cmbHH.DisplayMember = "TenMB";
+            cmbHH.ValueMember = "MaMB";
+
+        }
+
+        private void addData(HoaDonObj hdObj)
+        {
+            hdObj.MaHoaDon = txtMa.Text.Trim();
+            hdObj.NgayLap = txtNgayLap.Text.Trim();
+            hdObj.NguoiLap = txtNhanVien.Text.Trim();
+            hdObj.KhachHang = cmbKhachHang.SelectedValue.ToString();
+        }
+        private void capnhatSL(string mahh, int SL)
+        {
+            for (int i = 0; i < dtDSCT.Rows.Count; i++)
+                if (dtDSCT.Rows[i][1].ToString() == mahh)
+                {
+                    int soluong = int.Parse(dtDSCT.Rows[i][3].ToString()) + SL;
+                    dtDSCT.Rows[i][3] = soluong;
+                    double dongia = double.Parse(dtDSCT.Rows[i][2].ToString());
+                    dtDSCT.Rows[i][4] = (dongia * soluong).ToString();
+                    break;
+                }
+        }
+        private void clearData()
+        {
+            txtMa.Text = "";
+            txtNhanVien.Text = "";
+            txtNgayLap.Text = DateTime.Now.Date.ToShortDateString();
+            LoadcmbKhachHang();
+        }
+        private void btnAdd_Click(object sender, EventArgs e)
+        {
+
+            Dis_Enl(true);
+            clearData();
+            LoadcmbHH();
+            LoadcmbKhachHang();
+            dtDSCT.Rows.Clear();
+            dtDSCT.Columns.Add("MaHD");
+            dtDSCT.Columns.Add("HangHoa");
+            dtDSCT.Columns.Add("DonGia");
+            dtDSCT.Columns.Add("SoLuong");
+            dtDSCT.Columns.Add("ThanhTien");
+        }
+        private bool checktrung(string mahh)
+        {
+            for (int i = 0; i < dtDSCT.Rows.Count; i++)
+                if (dtDSCT.Rows[i][1].ToString() == mahh)
+                    return true;
+            return false;
+        }
+
+        private void btncham_Click(object sender, EventArgs e)
+        {
+            txtNgayLap.Enabled = true;
+
+        }
 
 
     }
